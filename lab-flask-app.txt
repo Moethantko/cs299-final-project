@@ -1,0 +1,17 @@
+#Q1
+What is return redirect('/') command doing?
+The command redirect('/') takes the user back to the homepage after submitting the task. 
+
+#Q2
+The commandline log when we are on creating new task entry page
+127.0.0.1 - - [30/Oct/2023 11:51:08] "GET /task-entry HTTP/1.1" 200
+
+#Q3
+The commandline log when we tap on the 'Add Task' button
+127.0.0.1 - - [30/Oct/2023 11:52:47] "POST /add-task HTTP/1.1" 302 -
+127.0.0.1 - - [30/Oct/2023 11:52:47] "GET / HTTP/1.1" 200
+
+#Q4
+The commandline log when we tap on the the 'Delete Tasks' button
+127.0.0.1 - - [01/Nov/2023 11:20:46] "POST / HTTP/1.1" 200
+
