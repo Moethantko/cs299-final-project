@@ -1,0 +1,45 @@
+#app-title {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #008CBA;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#services_table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #services_table td, #services_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #services_table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #services_table tr:hover {background-color: #ddd;}
+  
+  #services_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+#add-new-service-btn {
+    background-color: #008CBA;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}

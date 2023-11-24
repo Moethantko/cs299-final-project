@@ -2,22 +2,31 @@
 
  {% block body %}
     <h1>All services</h1>
-    <a href="/add-service">Add a new service</a>
-    <form action="/" method="post">
-        <table>
-            {% for service in all_services %}
-                <tr>
-                    <td>{{ service['id'] }}</td>
-                    <td>{{ service['type'] }}</td>
-                    <td>{{ service['cost'] }}</td>
-                    <td>{{ service['name'] }}</td>
-                    <td>{{ service['breed'] }}</td>
-                    <td>{{ service['age'] }}</td>
-                    <td>{{ service['full_name'] }}</td>
-                    <td><a href="/delete_service/{{service.id}}">Delete</a></td>
-               </tr>
-            {% endfor %}
-        </table>
-        <input type="submit" value="Delete Tasks">
-    </form>
+    <a href="/add-service" id="add-new-service-btn">Add a new service</a>
+    <table id="services_table">
+            <tr>
+                <td>Service ID</td>
+                <td>Service Type</td>
+                <td>Cost</td>
+                <td>Dog Name</td>
+                <td>Dog Breed</td>
+                <td>Dog Age</td>
+                <td>Owner</td>
+                <td></td>
+                <td></td>
+            </tr>
+        {% for service in all_services %}
+            <tr>
+                <td>{{ service['id'] }}</td>
+                <td>{{ service['type'] }}</td>
+                <td>{{ service['cost'] }}</td>
+                <td>{{ service['name'] }}</td>
+                <td>{{ service['breed'] }}</td>
+                <td>{{ service['age'] }}</td>
+                <td>{{ service['full_name'] }}</td>
+                <td><a href="/edit_service/{{service.id}}">Edit</a></td>
+                <td><a href="/delete_service/{{service.id}}">Delete</a></td>
+           </tr>
+        {% endfor %}
+    </table>
  {% endblock %}

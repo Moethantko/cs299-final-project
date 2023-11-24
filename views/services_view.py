@@ -13,7 +13,9 @@ def index():
 
 @service_list_blueprint.route('/add-service', methods=["GET"])
 def service_entry():
-   return render_template("service_entry.html")
+   database = DogGrommingDB(g.mysql_db, g.mysql_cursor)
+   all_dogs = database.select_all_dogs()
+   return render_template("service_entry.html", all_dogs=all_dogs)
 
 @service_list_blueprint.route('/add-service', methods=["POST"])
 def add_service():
@@ -29,6 +31,25 @@ def add_service():
 
    database = DogGrommingDB(g.mysql_db, g.mysql_cursor)
    database.insert_service(new_service)
+
+   return redirect('/')
+
+@service_list_blueprint.route('/edit_service/<int:service_id>', methods=["GET"])
+def service_edit(service_id):
+   database = DogGrommingDB(g.mysql_db, g.mysql_cursor)
+   all_dogs = database.select_all_dogs()
+   service = database.select_service(service_id=service_id)
+
+   return render_template("edit_service.html", all_dogs=all_dogs, service=service)
+
+@service_list_blueprint.route('/update_service', methods=["POST"])
+def update_service():
+   service_id = request.form.get("service_id")
+   new_service_type = request.form.get("service_type")
+   new_cost = request.form.get("cost")
+
+   database = DogGrommingDB(g.mysql_db, g.mysql_cursor)
+   database.update_service(service_id=service_id, new_type=new_service_type, new_cost=new_cost)
 
    return redirect('/')
 

@@ -19,7 +19,9 @@
   />
   <br />
   <select id="dog" name="dog">
-    <option value="1">Dog 1</option>
+    {% for dog in all_dogs %}
+      <option value="{{ dog['id'] }}">{{ dog['name'] }}</option>
+    {% endfor %}
   </select>
   <br />
   <input type="submit" value="Add Service" />
