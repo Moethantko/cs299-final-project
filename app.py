@@ -20,7 +20,7 @@ from flask import Flask, g
 from dotenv import load_dotenv
 
 # Imports for blueprints and other modules written for the application
-from views.task_view import task_list_blueprint
+from views.services_view import service_list_blueprint
 import utils.db as DBUtils
 
 # Load all the private data from the
@@ -46,7 +46,7 @@ app.config["DBPASSWORD"] = os.getenv("DBPASSWORD")
 app.config["SECRET_KEY"] = uuid.uuid4().hex
 
 # Setup Views
-app.register_blueprint(task_list_blueprint)
+app.register_blueprint(service_list_blueprint)
 
 
 # Helper function to establish a connection to the database

@@ -29,13 +29,39 @@ def init_db(config):
     cursor.execute(f"use {config['DATABASE']};")
     cursor.execute(
         f""" 
-        CREATE TABLE tasks
+        CREATE TABLE customers
         (
             id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,
-            description VARCHAR(50),
-            creation_datetime timestamp,
-            completed TINYINT(1),
-            CONSTRAINT pk_todo PRIMARY KEY (id)
+            firstName VARCHAR(50),
+            lastName VARCHAR(100),
+            CONSTRAINT pk_customer PRIMARY KEY (id)
+        );
+        """
+    )
+    cursor.execute(
+        f""" 
+        CREATE TABLE dogs
+        (
+            id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,
+            name VARCHAR(50),
+            breed VARCHAR(100),
+            age TINYINT(1) UNSIGNED,
+            customer_id SMALLINT UNSIGNED NOT NULL,
+            CONSTRAINT pk_dog PRIMARY KEY (id),
+            CONSTRAINT fk_dogs_owner_id FOREIGN KEY (customer_id) REFERENCES customers (id)
+        );
+        """
+    )
+    cursor.execute(
+        f""" 
+        CREATE TABLE services
+        (
+            id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,
+            type ENUM('HAIR','BATH','NAIL'),
+            cost DECIMAL(10, 2),
+            dog_id SMALLINT UNSIGNED NOT NULL,
+            CONSTRAINT pk_service PRIMARY KEY (id),
+            CONSTRAINT fk_services_dog_id FOREIGN KEY (dog_id) REFERENCES dogs (id)
         );
         """
     )

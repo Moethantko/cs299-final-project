@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>New Dog Gromming Service:</h1>
+<form action="/add-service" method="post">
+  <select id="service_type" name="service_type">
+    <option value="HAIR">Hair Cutting</option>
+    <option value="BATH">Bath</option>
+    <option value="NAIL">Nail Cutting</option>
+  </select>
+  <br />
+  <input
+    autocomplete="off"
+    autofocus
+    name="cost"
+    placeholder="Cost"
+    type="number"
+  />
+  <br />
+  <select id="dog" name="dog">
+    <option value="1">Dog 1</option>
+  </select>
+  <br />
+  <input type="submit" value="Add Service" />
+</form>
+
+{% endblock %}

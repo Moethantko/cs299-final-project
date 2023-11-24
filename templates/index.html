@@ -1,14 +1,20 @@
 {% extends "layout.html" %}
 
  {% block body %}
-    <h1>ToDo List:</h1>
-    <a href="/task-entry">Add a new task</a>
+    <h1>All services</h1>
+    <a href="/add-service">Add a new service</a>
     <form action="/" method="post">
         <table>
-            {% for task in todo_list %}
+            {% for service in all_services %}
                 <tr>
-                    <td>{{ task['description'] }}</td>
-                    <td><input type="checkbox" name="task_item" value={{ task['id'] }}></td>
+                    <td>{{ service['id'] }}</td>
+                    <td>{{ service['type'] }}</td>
+                    <td>{{ service['cost'] }}</td>
+                    <td>{{ service['name'] }}</td>
+                    <td>{{ service['breed'] }}</td>
+                    <td>{{ service['age'] }}</td>
+                    <td>{{ service['full_name'] }}</td>
+                    <td><a href="/delete_service/{{service.id}}">Delete</a></td>
                </tr>
             {% endfor %}
         </table>
