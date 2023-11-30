@@ -60,6 +60,7 @@ def init_db(config):
             type ENUM('HAIR','BATH','NAIL'),
             cost DECIMAL(10, 2),
             dog_id SMALLINT UNSIGNED NOT NULL,
+            completed BOOLEAN,
             CONSTRAINT pk_service PRIMARY KEY (id),
             CONSTRAINT fk_services_dog_id FOREIGN KEY (dog_id) REFERENCES dogs (id)
         );

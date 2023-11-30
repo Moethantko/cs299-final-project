@@ -1,8 +1,9 @@
 class Service:
-    def __init__(self, type, cost, dogID):
+    def __init__(self, type, cost, dogID, completed):
         self._type = type
         self._cost = cost
         self._dogID = dogID
+        self._completed = completed
     
     @property
     def type(self):
@@ -27,6 +28,14 @@ class Service:
     @dogID.setter
     def dogID(self, new_dogID):
         self._dogID = new_dogID
+
+    @property
+    def completed(self):
+        return bool(self._completed)
+    
+    @completed.setter
+    def completed(self, new_complete_status):
+        self._completed = new_complete_status
     
 
     

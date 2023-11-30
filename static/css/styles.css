@@ -1,10 +1,26 @@
-#app-title {
+#app-header {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     background-color: #008CBA;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#dog-logo {
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+  border-radius: 5%;
+}
+
+#app-title {
+    font-family: 'Times New Roman', Times, serif;
     color: white;
-    padding: 15px;
+    padding: 5px;
     border-radius: 5px;
+    text-decoration: none;
 }
 
 #services_table {
@@ -30,6 +46,18 @@
     color: white;
   }
 
+  #service-completed {
+    background-color: red;
+    color: white;
+    padding: 5px;
+  }
+
+  #service-in-progress {
+    background-color: gray;
+    color: white;
+    padding: 5px;
+  }
+
 #add-new-service-btn {
     background-color: #008CBA;
     border: none;
@@ -42,4 +70,43 @@
     font-size: 16px;
     margin-bottom: 20px;
     cursor: pointer;
+}
+
+.add-service-form-div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+}
+
+input[type=text], input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  /* Custome Checkbox */
+
+  .checkbox-div {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+.checkbox-div input[type=checkbox] {
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    position: absolute;
+  top: 0;
+  left: 0;
 }

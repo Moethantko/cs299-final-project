@@ -5,6 +5,14 @@ class Customer:
     
 
     @property
+    def firstName(self):
+        return self._firstName
+    
+    @property
+    def lastName(self):
+        return self._lastName
+    
+    @property
     def fullName(self):
         return self._firstName + " " + self._lastName
     

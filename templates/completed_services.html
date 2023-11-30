@@ -1,10 +1,7 @@
 {% extends "layout.html" %}
 
  {% block body %}
-    <h1>All services</h1>
-    <a href="/add_service" id="add-new-service-btn">Add a new service</a>
-    <a href="/add_dog" id="add-new-service-btn">Add a dog</a>
-    <a href="/view_completed_services" id="add-new-service-btn">View Completed Services</a>
+    <h1>Completed services</h1>
     <table id="services_table">
             <tr>
                 <td>Status</td>
@@ -18,7 +15,7 @@
                 <td></td>
                 <td></td>
             </tr>
-        {% for service in all_services %}
+        {% for service in all_completed_services %}
             <tr>
                 <td>
                     {% if service['completed'] %}
@@ -33,7 +30,7 @@
                 <td>{{ service['name'] }}</td>
                 <td>{{ service['breed'] }}</td>
                 <td>{{ service['age'] }}</td>
-                <td>{{ service['fullName'] }}</td>
+                <td>{{ service['full_name'] }}</td>
                 <td><a href="/edit_service/{{service.id}}">Edit</a></td>
                 <td><a href="/delete_service/{{service.id}}">Delete</a></td>
            </tr>

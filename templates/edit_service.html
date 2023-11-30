@@ -2,32 +2,38 @@
 
 {% block body %}
 
-<h1>Edit Dog Gromming Service:</h1>
-<form action="/update_service" method="post">
-    
-  <input type="hidden" name="service_id" value="{{ service.id }}">
-  <select id="service_type" name="service_type">
-    <option value="HAIR" {% if "HAIR" == service['type'] %} selected {% endif %}>Hair Cutting</option>
-    <option value="BATH" {% if "BATH" == service['type'] %} selected {% endif %}>Bath</option>
-    <option value="NAIL" {% if "NAIL" == service['type'] %} selected {% endif %}>Nail Cutting</option>
-  </select>
-  <br />
-  <input
-    autocomplete="off"
-    autofocus
-    name="cost"
-    value="{{ service['cost'] }}"
-    placeholder="Cost"
-    type="number"
-  />
-  <br />
-  <select id="dog" name="dog" disabled>
-    {% for dog in all_dogs %}
-      <option value="{{ dog['id'] }}" {% if dog['id'] == service['dog_id'] %} selected {% endif %}>{{ dog['name'] }}</option>
-    {% endfor %}
-  </select>
-  <br />
-  <input type="submit" value="Update Service" />
-</form>
+<div class="add-service-form-div">
+  <h1>Edit Dog Gromming Service:</h1>
+  <form action="/update_service" method="post">
+    <input type="hidden" name="service_id" value="{{ service.id }}">
+    <select id="service_type" name="service_type">
+      <option value="HAIR" {% if "HAIR" == service['type'] %} selected {% endif %}>Hair Cutting</option>
+      <option value="BATH" {% if "BATH" == service['type'] %} selected {% endif %}>Bath</option>
+      <option value="NAIL" {% if "NAIL" == service['type'] %} selected {% endif %}>Nail Cutting</option>
+    </select>
+    <br />
+    <input
+      autocomplete="off"
+      autofocus
+      name="cost"
+      value="{{ service['cost'] }}"
+      placeholder="Cost"
+      type="number"
+    />
+    <br />
+    <select id="dog" name="dog" disabled>
+      {% for dog in all_dogs %}
+        <option value="{{ dog['id'] }}" {% if dog['id'] == service['dog_id'] %} selected {% endif %}>{{ dog['name'] }}</option>
+      {% endfor %}
+    </select>
+    <br />
+    <label class="checkbox-div">Completed
+      <input type="checkbox" {% if service['completed'] %} checked {% endif %} name="completed">
+      <span class="checkmark"></span>
+    </label>
+    <br />
+    <input type="submit" id="add-new-service-btn" value="Update Service" />
+  </form>
+</div>
 
 {% endblock %}

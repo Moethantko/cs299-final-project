@@ -2,29 +2,31 @@
 
 {% block body %}
 
-<h1>New Dog Gromming Service:</h1>
-<form action="/add-service" method="post">
-  <select id="service_type" name="service_type">
-    <option value="HAIR">Hair Cutting</option>
-    <option value="BATH">Bath</option>
-    <option value="NAIL">Nail Cutting</option>
-  </select>
-  <br />
-  <input
-    autocomplete="off"
-    autofocus
-    name="cost"
-    placeholder="Cost"
-    type="number"
-  />
-  <br />
-  <select id="dog" name="dog">
-    {% for dog in all_dogs %}
-      <option value="{{ dog['id'] }}">{{ dog['name'] }}</option>
-    {% endfor %}
-  </select>
-  <br />
-  <input type="submit" value="Add Service" />
-</form>
+<div class="add-service-form-div">
+  <h1>New Dog Gromming Service:</h1>
+  <form action="/add_service" method="post">
+    <select id="service_type" name="service_type">
+      <option value="HAIR">Hair Cutting</option>
+      <option value="BATH">Bath</option>
+      <option value="NAIL">Nail Cutting</option>
+    </select>
+    <br />
+    <input
+      autocomplete="off"
+      autofocus
+      name="cost"
+      placeholder="50.00"
+      type="number"
+    />
+    <br />
+    <select id="dog" name="dog">
+      {% for dog in all_dogs %}
+        <option value="{{ dog['id'] }}">{{ dog['name'] }}</option>
+      {% endfor %}
+    </select>
+    <br />
+    <input type="submit" id="add-new-service-btn" value="Add Service" />
+  </form>
+</div>
 
 {% endblock %}

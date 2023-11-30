@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="add-service-form-div">
+  <h1>Add a dog:</h1>
+  <form action="/add_dog" method="post">
+    <input
+      autocomplete="off"
+      autofocus
+      name="dog_name"
+      placeholder="Dog name"
+      type="text"
+    />
+    <select id="service_type" name="dog_breed">
+      <option value="puli">Puli</option>
+      <option value="bassethound">Basset Hound</option>
+      <option value="scottishterrier">Scottish Terrier</option>
+      <option value="bulldog">Bulldog</option>
+      <option value="greyhound">Greyhound</option>
+      <option value="chihuahua">Chihuahua</option>
+    </select>
+    <br />
+    <input
+      autocomplete="off"
+      autofocus
+      name="dog_age"
+      placeholder="age"
+      type="number"
+    />
+    <br />
+    <input
+      autocomplete="off"
+      autofocus
+      name="customer_first_name"
+      placeholder="Owner First Name"
+      type="text"
+    />
+    <br />
+    <input
+        autocomplete="off"
+        autofocus
+        name="customer_last_name"
+        placeholder="Owner Last Name"
+        type="text"
+    />
+    <br />
+    <input type="submit" id="add-new-service-btn" value="Add Dog" />
+  </form>
+</div>
+
+{% endblock %}

@@ -7,9 +7,9 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
-        <div class="header">
-            <!-- <img src="{{ url_for('static', filename='img/task-logo.png') }}" alt="logo"> -->
-            <h1 id="app-title">Dog Gromming Business</h1>
+        <div id="app-header">
+            <span><img id="dog-logo" src="{{ url_for('static', filename='img/dog-img.jpeg') }}" alt="logo"></span>
+            <span><a href="/" id="app-title"><h1>Dog Gromming Business</h1></a></span>
         </div>
         <!-- Jinja templating code that we can redefine for other pages -->
         {% block body %}{% endblock %}
